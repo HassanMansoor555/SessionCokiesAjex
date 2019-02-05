@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>website</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+</head>
+<body>
+
+	<form class="Myform" action="index.php" method="post">
+		<h1> Extract URL</h1>
+	<textarea type="file" name="Surl" class="user" placeholder="EnterText"> </textarea>
+	<input type="submit" name="filter">
+	<!-- <a href="#">aa</a> -->
+</form>
+<div class="row">
+    <div class="col-sm-12">
+        <h1>URL's</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">URL's</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            	<?php
+            	if(isset($_POST["filter"]))
+            	{
+    				$url =  $_POST["Surl"];
+    				$no = 1;
+    				echo "<tr>
+    						<th> $no </th>
+    						<th><a href='http://$url' target='_blank'> $url</a> </th>
+    					</tr>";
+    					
+				}
+				?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+///SEarch any word if i wrote a word it will show related words!
+
+
+
+<form class="form-check-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search Dress"
+                       aria-label="Search" onkeyup="checkSearch(this.value)">
+
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+
+
+<script>
+        function checkSearch(str) {
+            if (str.length == 0) {
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("content").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "check_Search.php?search=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
